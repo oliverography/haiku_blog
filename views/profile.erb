@@ -19,6 +19,8 @@ Following (count) -->
   </div>
 </header>
 <section id="posts">
+<% current_user.posts.inspect %>
+
   <% @posts.each do |post| %>
     <div class="post">
 
@@ -46,4 +48,6 @@ Following (count) -->
 
     </div>
   <% end %>
+
+
 </section>
