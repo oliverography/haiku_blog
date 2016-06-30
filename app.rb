@@ -50,6 +50,7 @@ post "/sign-in" do
 
     redirect "/home"
   else
+    redirect "/sign-in"
     flash[:error] = "Sorry, your email and password do not match."
   end
 end
@@ -81,6 +82,8 @@ end
 #   PROFILE
 # ============================================================
 get "/profile" do
+  @posts = current_user.posts.all
+
   erb :profile
 end
 
