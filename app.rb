@@ -7,10 +7,14 @@ enable :sessions
 set :database, "sqlite3:app.db"
 
 # ============================================================
-#   INDEX/SPLASH
+#   LANDING/HOME
 # ============================================================
 get "/" do
-  erb :index
+  if session[:user_id]
+    erb :home
+  else
+    erb :landing
+  end
 end
 
 # ============================================================
@@ -27,6 +31,8 @@ post "/sign-up" do
     bday: params[:bday],
     password: params[:password]
   )
+  @user = User.where(email: params[:email]).first
+  session[:user_id] = @user.id
   flash[:notice] = "You have signed up"
 
   redirect "/home"
@@ -48,13 +54,12 @@ post "/sign-in" do
   end
 end
 
-get "/login-failed" do
-  erb :login_failed
+get "/sign-in-failed" do
+  erb :sign_in_failed
 end
 
 get "/sign-out" do
-  session.delete(:user_id)
-  @current_user = nil
+  session[:user_id] = nil
 
   redirect "/"
 end
@@ -107,7 +112,6 @@ post "/write" do
 
   redirect "/profile"
 end
-
 
 # ============================================================
 #   FOLLOWING

@@ -7,16 +7,19 @@
     <title>HAIKU</title>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>HAIKU</li>
-        <li>PROFILE (Replaced with users first name)</li>
-        <li>WRITE</li>
-        <li>SETTINGS</li>
-        <li>LOG OUT</li>
-      </ul>
-    </nav>
-    
+    <% if session[:user_id] %>
+      <nav>
+        <h1>HAIKU</h1>
+        <ul>
+          <li><a href="/home">HOME</a></li>
+          <li><a href="/profile">PROFILE (Replaced with users first name)</a></li>
+          <li><a href="/write">WRITE</a></li>
+          <li><a href="/settings">SETTINGS</a></li>
+          <li><a href="/sign-out">SIGN OUT</a></li>
+        </ul>
+      </nav>
+    <% end %>
+
     <%= yield %>
 
   </body>
