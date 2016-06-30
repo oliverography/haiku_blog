@@ -8,3 +8,4 @@ class CreateUsersTable < ActiveRecord::Migration
     end
   end
 end
+
