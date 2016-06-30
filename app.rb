@@ -52,6 +52,13 @@ get "/login-failed" do
   erb :login_failed
 end
 
+get "/sign-out" do
+  session.delete(:user_id)
+  @current_user = nil
+
+  redirect "/"
+end
+
 def current_user
   if session[:user_id]
     User.find(session[:user_id])
@@ -85,6 +92,8 @@ end
 get "/write" do
   erb :write
 end
+
+post 
 
 # ============================================================
 #   FOLLOWING
