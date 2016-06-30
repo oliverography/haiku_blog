@@ -9,9 +9,41 @@ Name
 Followers (count)
 Following (count) -->
 
-<section id="info">
-  <!-- user info -->
-</section>
+<header id="profile_header">
+  <div>
+    [NAME]
+  </div>
+  <div>
+    <span>[# of FOLLOWERS] FOLLOWERS</span>
+    <span>[# of FOLLOWING] FOLLOWING</span>
+  </div>
+</header>
 <section id="posts">
-  <!-- center column: haikus -->
+  <% @posts.each do |post| %>
+    <div class="post">
+
+      <!-- HAIKU -->
+      <div class="post_top">
+        <%= post.line1 %>
+        <%= post.line2 %>
+        <%= post.line3 %>
+      </div>
+      <!-- HAIKU INFO -->
+      <div class="post_bottom">
+        <div class="like_counter">
+          <img src="swan.svg">
+          <span class="divider">|</span>
+          <%= post.likes %>
+        </div>
+      </div>
+      <!-- EDITING -->
+      <% if session[:user_id] == [page_user] %>
+        <div class="edit_corner">
+          <a href="/edit"><img src="edit.svg"></a>
+          <a href="/delete"><img src="delete.svg"></a>
+        </div>
+      <% end %>
+
+    </div>
+  <% end %>
 </section>
