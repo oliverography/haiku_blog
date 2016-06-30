@@ -101,6 +101,21 @@ get "/write" do
   erb :write
 end
 
+
+post "/write" do 
+  Post.create(
+    line1: params[:line1],
+    line2: params[:line2],
+    line3: params[:line3]
+    # user_id = current_user.[:user_id] 
+  )
+
+
+  flash[:notice] = "you write a haiku"
+
+  redirect "/profile"
+end
+
 # ============================================================
 #   FOLLOWING
 # ============================================================
