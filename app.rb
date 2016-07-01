@@ -67,7 +67,7 @@ end
 
 def current_user
   if session[:user_id]
-    User.find(session[:user_id])
+    @current_user = User.find(session[:user_id])
   end
 end
 
@@ -81,9 +81,16 @@ end
 # ============================================================
 #   PROFILE
 # ============================================================
+# Current user profile
 get "/profile" do
-  @posts = current_user.posts.all
+  @user = current_user
+  
+  erb :profile
+end
 
+get "/profile/:id" do
+  @user = User.find(params[:id])
+  
   erb :profile
 end
 
@@ -101,7 +108,6 @@ get "/write" do
   erb :write
 end
 
-
 post "/write" do 
   Post.create(
     line1: params[:line1],
@@ -114,6 +120,27 @@ post "/write" do
 
   redirect "/profile"
 end
+
+# ============================================================
+#   EDIT/DELETE POSTS
+# ============================================================
+get "/delete/:id" do
+  @post = Post.find(params[:id])
+  @post.destroy
+
+  redirect back
+end
+
+# ============================================================
+#   LIKE
+# ============================================================
+get "/like/:id" do
+  @post = Post.find(params[:id])
+  @post.update(likes: @post.likes + 1)
+
+  redirect back
+end
+
 
 # ============================================================
 #   FOLLOWING
