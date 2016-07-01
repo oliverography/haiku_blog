@@ -83,7 +83,6 @@ end
 # ============================================================
 get "/profile" do
   @posts = current_user.posts.all
-
   erb :profile
 end
 
@@ -93,6 +92,31 @@ end
 get "/settings" do
   erb :settings
 end
+
+post "/settings" do 
+
+  User.update (
+    name: params[:name],
+    email: params[:email],
+    bday: params[:bday],
+    password: params[:password]
+    )
+
+#     @user = User.where(email: params[:email]).first
+
+#     puts @user.id
+#     # puts @user.name
+
+#     @user.update(
+#     user.id, 
+#       :name => params[:name],
+#       :email => params[:email],
+#       :datetime => params[:datetime],
+#       :password => params[:password]
+#     )
+#     flash[:notice] = "you changes are saved"
+# end 
+
 
 # ============================================================
 #   WRITE
@@ -107,7 +131,7 @@ post "/write" do
     line1: params[:line1],
     line2: params[:line2],
     line3: params[:line3],
-    user_id: current_user.[:user_id] 
+    user_id: current_user.id
   )
 
 

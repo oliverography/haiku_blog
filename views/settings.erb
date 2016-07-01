@@ -1,4 +1,5 @@
 <!-- Settings page
+current user.
 
 NAME
 EMAIL
@@ -10,4 +11,17 @@ Delete account button -->
 
 <section id="settings">
   <!-- ser info fields -->
+  <form method="post" action="/settings">
+	 <input class="input_write" type="text" name="current_user_name" value="<%= current_user.name %>"> </input>
+	 <br>
+	 <input class="input_write" type="text" name="current_user_email" value="<%= current_user.email %>"> </input>
+	 <br>
+	 <input class="input_write" type="text" name="current_user_bday" value="<%= current_user.bday %>"> </input>
+	 <br>
+	 <input class="input_write" type="password" name="current_user_password" value="<%= current_user.password %>"> </input>
+	<input type="submit" name="edit" value="save changes"></input>
+	<input type="submit" name="delete" value="delete"> 
+   </form>
 </section>
+
+
