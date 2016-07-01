@@ -90,7 +90,7 @@ end
 
 get "/profile/:id" do
   @user = User.find(params[:id])
-  
+
   erb :profile
 end
 
@@ -100,6 +100,31 @@ end
 get "/settings" do
   erb :settings
 end
+
+post "/settings" do 
+
+  User.update(
+    name: params[:name],
+    email: params[:email],
+    bday: params[:bday],
+    password: params[:password]
+    )
+
+#     @user = User.where(email: params[:email]).first
+
+#     puts @user.id
+#     # puts @user.name
+
+#     @user.update(
+#     user.id, 
+#       :name => params[:name],
+#       :email => params[:email],
+#       :datetime => params[:datetime],
+#       :password => params[:password]
+#     )
+#     flash[:notice] = "you changes are saved"
+# end 
+
 
 # ============================================================
 #   WRITE
