@@ -1,49 +1,39 @@
-<!-- Profile page
-
-All posts, single column
-
-Each post has time, edit, delete option
-User info column/area
-
-Name
-Followers (count)
-Following (count) -->
-
 <header id="profile_header">
-  <div>
-    [NAME]
-  </div>
-  <div>
-    <span>[# of FOLLOWERS] FOLLOWERS</span>
-    <span>[# of FOLLOWING] FOLLOWING</span>
+  <h1><%= @user.name.upcase %></h1>
+  <div class="follow_counter">
+    <span>[#] FOLLOWERS</span>
+    <span>[#] FOLLOWING</span>
   </div>
 </header>
 <section id="posts">
-  <% @posts.each do |post| %>
+  <!-- POST MODULE -->
+  <% @user.posts.reverse.each do |post| %>
     <div class="post">
 
       <!-- HAIKU -->
-      <div class="post_top">
-        <%= post.line1 %>
-        <%= post.line2 %>
-        <%= post.line3 %>
+      <div class="post_top"> 
+        <p><%= post.line1 %></p>
+        <p><%= post.line2 %></p>
+        <p><%= post.line3 %></p>
       </div>
       <!-- HAIKU INFO -->
       <div class="post_bottom">
+        <!-- <h3><%= post.user.name %></h3> -->
         <div class="like_counter">
-          <img src="swan.svg">
+          <a href="/like/<%= post.id %>"><img src="/images/swan.svg"></a>
           <span class="divider">|</span>
-          <%= post.likes %>
+          <span class="like_num"><%= post.likes %></span>
         </div>
       </div>
-      <!-- EDITING -->
-      <% if session[:user_id] == [page_user] %>
+      <!-- EDIT CORNER -->
+      <% if current_user.id == @user.id %>
         <div class="edit_corner">
-          <a href="/edit"><img src="edit.svg"></a>
-          <a href="/delete"><img src="delete.svg"></a>
+          <a href="/edit/<%= post.id %>"><img src="edit.svg"></a>
+          <a href="/delete/<%= post.id %>"><img src="delete.svg"></a>
         </div>
       <% end %>
 
     </div>
   <% end %>
+
 </section>
