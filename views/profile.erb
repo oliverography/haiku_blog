@@ -7,7 +7,7 @@
 </header>
 <section id="posts">
   <!-- POST MODULE -->
-  <% @user.posts.reverse.each do |post| %>
+  <% @posts.reverse.each do |post| %>
     <div class="post">
 
       <!-- HAIKU -->
@@ -21,12 +21,14 @@
         <!-- <h3><%= post.user.name %></h3> -->
         <div class="like_counter">
           <a href="/like/<%= post.id %>"><img src="/images/swan.svg"></a>
-          <span class="divider">|</span>
-          <span class="like_num"><%= post.likes %></span>
+          <% if post.likes != 0 %>
+            <span class="divider">|</span>
+            <span class="like_num"><%= post.likes %></span>
+          <% end %>
         </div>
       </div>
       <!-- EDIT CORNER -->
-      <% if current_user.id == @user.id %>
+      <% if current_user.id == post.user.id %>
         <div class="edit_corner">
           <a href="/edit/<%= post.id %>"><img src="edit.svg"></a>
           <a href="/delete/<%= post.id %>"><img src="delete.svg"></a>

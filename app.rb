@@ -11,10 +11,11 @@ set :database, "sqlite3:app.db"
 # ============================================================
 get "/" do
   if session[:user_id]
-    erb :home
+    redirect "/home"
   else
-    erb :landing
+    erb :landing1
   end
+  # add in extra landing pages based on timestamp (dawn, morning, afternoon, dusk, night)
 end
 
 # ============================================================
@@ -76,6 +77,8 @@ end
 #   HOME
 # ============================================================
 get "/home" do
+  @posts = Post.all
+
   erb :home
 end
 
@@ -85,12 +88,20 @@ end
 # Current user profile
 get "/profile" do
   @user = current_user
+  @posts = current_user.posts
   
   erb :profile
 end
 
+
 post "/profile/:id" do
+
+end
+# User profile
+get "/profile/:id" do
+
   @user = User.find(params[:id])
+  @posts = User.find(params[:id]).posts
 
   erb :profile
 end
@@ -116,12 +127,17 @@ post "/edit-settings" do
     password: params[:password],
     user_id: current_user.id
     )
+<<<<<<< HEAD
 
    flash[:notice] = "your changes have been saved"
    
    redirect '/settings' 
 end
 
+=======
+end
+#     @user = User.where(email: params[:email]).first
+>>>>>>> 5142752a9769896953e70c30ac26b4330fbc4f83
 
 # delete the Current user
 
@@ -137,7 +153,11 @@ end
 #   WRITE
 # ============================================================
 get "/write" do
-  erb :write
+  if session[:user_id]
+    erb :write
+  else
+    redirect "/"
+  end
 end
 
 post "/write" do 
@@ -145,7 +165,8 @@ post "/write" do
     line1: params[:line1],
     line2: params[:line2],
     line3: params[:line3],
-    user_id: current_user.id
+    user_id: current_user.id,
+    likes: 0
   )
 
   flash[:notice] = "you write a haiku"
