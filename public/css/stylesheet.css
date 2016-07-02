@@ -21,6 +21,10 @@
     src: url("/fonts/replica light.otf");
 }
 
+/* ============================================================
+  GLOBAL (USED THROUGHOUT WEBSITE)
+============================================================ */
+
 p {
   font-family: "Berthold Akzidenz Grotesk";
   font-size: 16px;
@@ -50,10 +54,51 @@ a {
   color: black;
 }
 
+.form_title {
+  display: inline-block;
+  padding: 10px 0;
+  border-bottom: 1px solid black;
+  font-family: "Replica-Regular";
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.input {
+  display: block;
+  margin: 0 auto 30px auto;
+  padding: 10px 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #C1C1C1;
+  font-family: "Berthold Akzidenz Grotesk";
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 0;
+  border: solid 1px black;
+  outline: none;
+  background-color: transparent;
+  font-family: "Replica-Regular";
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #C1C1C1;
+  color: white;
+}
+
 /* ============================================================
   LANDING PAGE
 ============================================================ */
-#landing {
+section#landing {
   height: 100vh;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -74,11 +119,10 @@ a {
   letter-spacing: 4px;
 }
 
-#sign_in_box {
+#landing_box {
   position: absolute;
   top: 20vh;
   left: 55vw;
-  /*border: solid 1px darkgrey;*/
   text-align: center;
 }
 
@@ -91,100 +135,47 @@ a {
 
 .haiku_bottom {
   margin: 10px 0 80px 0;
-  /*display: inline-block;*/
-  /*border: solid 1px black;*/
-  /*width: 80%;
-  padding: 20px;*/
 }
 
-.button {
-  display: inline-block;
+.button.sign {
   width: 140px;
-  padding: 6px;
   margin: 0 5px;
-  border: solid 1px black;
-  font-family: "Replica-Light";
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-align: center;
-}
-
-.button:hover {
-  background-color: lightgrey;
 }
 
 /* ============================================================
   SIGN-UP/SIGN-IN PAGES
 ============================================================ */
-#sign-in {
+section#sign {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255,255,255,1);
+  width: 500px;
   height: 100vh;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  text-align: center;
 }
 
-.morning {
-  background-image: url("/images/background1.jpeg");
-}
-
-#sign_form {
+.sign_form {
   position: relative;
   top: 50vh;
   -ms-transform: translate(0,-50%);
   -webkit-transform: translate(0,-50%);
   transform: translate(0,-50%);
-  background: rgba(255,255,255,1);
-  
-  /*margin-top: 10%;*/
-  margin: 0 auto;
-  padding: 50px 0;
-  width: 500px;
-  border: 1px solid black;
-  /*padding-top: 10%;*/
-  text-align: center;
 }
 
-.sign_input {
-  display: block;
-  margin: 0 auto 20px auto;
-  padding: 10px 0;
-  font-family: "Berthold Akzidenz Grotesk";
-  font-size: 16px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom:1px solid black;
+.form_title.sign {
   width: 75%;
-  text-align: center;
-  letter-spacing: 2px;
+  margin-bottom: 50px;
 }
 
-.sign_button {
-  letter-spacing: 2px;
-  margin-top: 30px; 
+.input.sign {
   width: 75%;
-  height: 25px;
-  border:1px solid black;
-  font-family: "Replica-Light";
-  font-size: 14px;
-  text-align: center;
 }
 
-/*  display: inline-block;
-  width: 140px;
-  padding: 6px;
-  margin: 0 5px;
-  border: solid 1px black;
-  font-family: "Replica-Light";
-  font-size: 14px;
-  text-align: center;*/
-
-.sign_button:hover {
-   background-color: lightgrey;
+.button.sign-submit {
+  width: 75%;
+  margin-top: 50px;
 }
-
-
 
 /* ============================================================
   HOME PAGE
