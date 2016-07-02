@@ -7,3 +7,4 @@ gem "sinatra-activerecord"
 gem "sqlite3"
 gem "rake"
 gem "sinatra-flash"
+gem uninstall activerecord —version 5.0.0

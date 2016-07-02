@@ -25,13 +25,12 @@ get "/sign-up" do
 end
 
 post "/sign-up" do
-  User.create(
+  @user = User.create(
     name: params[:name],
     email: params[:email],
     bday: params[:bday],
     password: params[:password]
   )
-  @user = User.where(email: params[:email]).first
   session[:user_id] = @user.id
   flash[:notice] = "You have signed up"
 
@@ -65,9 +64,11 @@ get "/sign-out" do
   redirect "/"
 end
 
-def current_user
-  if session[:user_id]
-    @current_user = User.find(session[:user_id])
+helpers do  
+  def current_user
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
   end
 end
 
@@ -88,7 +89,7 @@ get "/profile" do
   erb :profile
 end
 
-get "/profile/:id" do
+post "/profile/:id" do
   @user = User.find(params[:id])
 
   erb :profile
@@ -97,34 +98,40 @@ end
 # ============================================================
 #   SETTINGS
 # ============================================================
+
 get "/settings" do
+  @user = current_user
+
   erb :settings
 end
 
-post "/settings" do 
+# updating the Current user information
 
-  User.update(
+post "/edit-settings" do
+
+  @user= User.update(
     name: params[:name],
     email: params[:email],
     bday: params[:bday],
-    password: params[:password]
+    password: params[:password],
+    user_id: current_user.id
     )
 
-#     @user = User.where(email: params[:email]).first
+   flash[:notice] = "your changes have been saved"
+   
+   redirect '/settings' 
+end
 
-#     puts @user.id
-#     # puts @user.name
 
-#     @user.update(
-#     user.id, 
-#       :name => params[:name],
-#       :email => params[:email],
-#       :datetime => params[:datetime],
-#       :password => params[:password]
-#     )
-#     flash[:notice] = "you changes are saved"
-# end 
+# delete the Current user
 
+get "/delete-account/" do 
+
+  @user = User.destroy
+  flash[:notice] = "current user deleted, we will miss you."
+
+  redirect "/"
+end 
 
 # ============================================================
 #   WRITE
@@ -153,7 +160,7 @@ get "/delete/:id" do
   @post = Post.find(params[:id])
   @post.destroy
 
-  redirect back
+  redirect "/"
 end
 
 # ============================================================
@@ -170,6 +177,4 @@ end
 # ============================================================
 #   FOLLOWING
 # ============================================================
-
-
 

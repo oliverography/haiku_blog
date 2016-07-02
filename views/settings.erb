@@ -11,17 +11,30 @@ Delete account button -->
 
 <section id="settings">
   <!-- ser info fields -->
-  <form method="post" action="/settings">
-	 <input class="input_write" type="text" name="current_user_name" value="<%= current_user.name %>"> </input>
+  <form method="post" action="/v">
+	 <input class="input_write" type="text" placeholder="<%= @user.name %>" > </input>
 	 <br>
-	 <input class="input_write" type="text" name="current_user_email" value="<%= current_user.email %>"> </input>
+	 <input class="input_write" type="text" placeholder="<%= @user.email %>" > </input>
 	 <br>
-	 <input class="input_write" type="text" name="current_user_bday" value="<%= current_user.bday %>"> </input>
+	 <input class="input_write" type="text" placeholder="<%= @user.bday %>"> </input>
 	 <br>
-	 <input class="input_write" type="password" name="current_user_password" value="<%= current_user.password %>"> </input>
-	<input type="submit" name="edit" value="save changes"></input>
-	<input type="submit" name="delete" value="delete"> 
+	 <input class="input_write" type="text" placeholder="<%= @user.password %>"> </input>
+	 <br>
+	 <br>
+	 <br>
+	<a href="/edit-user"> DELETE ACCOUNT</a>
+	 <br>	 <br>
+	<a href="/delete-account/"> SAVE CHANGES </a>
    </form>
-</section>
 
+</section>
+ <br>
+
+   <%= @user.name %>
+   	 <br> 
+   <%= @user.email %>
+   	 <br> 
+   <%= @user.bday %>
+   	 <br> 
+   <%= @user.password %>
 
