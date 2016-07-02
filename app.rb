@@ -93,13 +93,8 @@ get "/profile" do
   erb :profile
 end
 
-
-post "/profile/:id" do
-
-end
 # User profile
 get "/profile/:id" do
-
   @user = User.find(params[:id])
   @posts = User.find(params[:id]).posts
 
@@ -112,7 +107,6 @@ end
 
 get "/settings" do
   @user = current_user
-
   erb :settings
 end
 
@@ -120,30 +114,27 @@ end
 
 post "/edit-settings" do
 
-  @user= User.update(
+  @user= User.find(session[:user_id]).update(
     name: params[:name],
     email: params[:email],
     bday: params[:bday],
     password: params[:password],
-    user_id: current_user.id
     )
-<<<<<<< HEAD
 
-   flash[:notice] = "your changes have been saved"
-   
-   redirect '/settings' 
+
+    flash[:notice] = "your changes have been saved"
+
+    redirect "/settings" 
 end
 
-=======
-end
-#     @user = User.where(email: params[:email]).first
->>>>>>> 5142752a9769896953e70c30ac26b4330fbc4f83
+
 
 # delete the Current user
-
 get "/delete-account/" do 
 
-  @user = User.destroy
+  @user = User.find(params[:id])
+  @user.destroy
+
   flash[:notice] = "current user deleted, we will miss you."
 
   redirect "/"
