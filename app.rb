@@ -65,9 +65,11 @@ get "/sign-out" do
   redirect "/"
 end
 
-def current_user
-  if session[:user_id]
-    @current_user = User.find(session[:user_id])
+helpers do  
+  def current_user
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
   end
 end
 
@@ -91,8 +93,13 @@ get "/profile" do
   erb :profile
 end
 
+
+post "/profile/:id" do
+
+end
 # User profile
 get "/profile/:id" do
+
   @user = User.find(params[:id])
   @posts = User.find(params[:id]).posts
 
@@ -102,34 +109,45 @@ end
 # ============================================================
 #   SETTINGS
 # ============================================================
+
 get "/settings" do
+  @user = current_user
+
   erb :settings
 end
 
-post "/settings" do 
+# updating the Current user information
 
-  User.update(
+post "/edit-settings" do
+
+  @user= User.update(
     name: params[:name],
     email: params[:email],
     bday: params[:bday],
-    password: params[:password]
+    password: params[:password],
+    user_id: current_user.id
     )
+<<<<<<< HEAD
+
+   flash[:notice] = "your changes have been saved"
+   
+   redirect '/settings' 
+end
+
+=======
 end
 #     @user = User.where(email: params[:email]).first
+>>>>>>> 5142752a9769896953e70c30ac26b4330fbc4f83
 
-#     puts @user.id
-#     # puts @user.name
+# delete the Current user
 
-#     @user.update(
-#     user.id, 
-#       :name => params[:name],
-#       :email => params[:email],
-#       :datetime => params[:datetime],
-#       :password => params[:password]
-#     )
-#     flash[:notice] = "you changes are saved"
-# end 
+get "/delete-account/" do 
 
+  @user = User.destroy
+  flash[:notice] = "current user deleted, we will miss you."
+
+  redirect "/"
+end 
 
 # ============================================================
 #   WRITE
@@ -163,7 +181,7 @@ get "/delete/:id" do
   @post = Post.find(params[:id])
   @post.destroy
 
-  redirect back
+  redirect "/"
 end
 
 # ============================================================
@@ -180,6 +198,4 @@ end
 # ============================================================
 #   FOLLOWING
 # ============================================================
-
-
 
