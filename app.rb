@@ -11,10 +11,11 @@ set :database, "sqlite3:app.db"
 # ============================================================
 get "/" do
   if session[:user_id]
-    erb :home
+    redirect "/home"
   else
-    erb :landing
+    erb :landing1
   end
+  # add in extra landing pages based on timestamp (dawn, morning, afternoon, dusk, night)
 end
 
 # ============================================================
@@ -25,13 +26,12 @@ get "/sign-up" do
 end
 
 post "/sign-up" do
-  User.create(
+  @user = User.create(
     name: params[:name],
     email: params[:email],
     bday: params[:bday],
     password: params[:password]
   )
-  @user = User.where(email: params[:email]).first
   session[:user_id] = @user.id
   flash[:notice] = "You have signed up"
 
@@ -75,6 +75,8 @@ end
 #   HOME
 # ============================================================
 get "/home" do
+  @posts = Post.all
+
   erb :home
 end
 
@@ -84,12 +86,15 @@ end
 # Current user profile
 get "/profile" do
   @user = current_user
+  @posts = current_user.posts
   
   erb :profile
 end
 
+# User profile
 get "/profile/:id" do
   @user = User.find(params[:id])
+  @posts = User.find(params[:id]).posts
 
   erb :profile
 end
@@ -109,7 +114,7 @@ post "/settings" do
     bday: params[:bday],
     password: params[:password]
     )
-
+end
 #     @user = User.where(email: params[:email]).first
 
 #     puts @user.id
@@ -130,7 +135,11 @@ post "/settings" do
 #   WRITE
 # ============================================================
 get "/write" do
-  erb :write
+  if session[:user_id]
+    erb :write
+  else
+    redirect "/"
+  end
 end
 
 post "/write" do 
@@ -138,7 +147,8 @@ post "/write" do
     line1: params[:line1],
     line2: params[:line2],
     line3: params[:line3],
-    user_id: current_user.id
+    user_id: current_user.id,
+    likes: 0
   )
 
   flash[:notice] = "you write a haiku"
