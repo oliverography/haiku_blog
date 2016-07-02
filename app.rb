@@ -106,32 +106,28 @@ end
 # ============================================================
 
 get "/settings" do
-  @user = current_user
+  @user = User.find(session[:user_id]) 
   erb :settings
 end
 
 # updating the Current user information
 
-post "/edit-settings" do
-
-  @user= User.find(session[:user_id]).update(
+post "/settings" do
+  
+  @user = User.find(session[:user_id]).update(
     name: params[:name],
     email: params[:email],
     bday: params[:bday],
-    password: params[:password],
+    password: params[:password]
     )
-
 
     flash[:notice] = "your changes have been saved"
 
     redirect "/settings" 
 end
 
-
-
 # delete the Current user
-get "/delete-account/" do 
-
+post "/delete-account/" do 
   @user = User.find(params[:id])
   @user.destroy
 
