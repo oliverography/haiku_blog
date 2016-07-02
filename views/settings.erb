@@ -9,22 +9,31 @@ Edit button
 
 Delete account button -->
 
+<%= @user.name %>
+<br>
+<%= @user.email %>
+<br>
+<%= @user.bday %>
+<br>
+<%= @user.password %>
+
+
 <section id="settings">
   <!-- ser info fields -->
-  <form method="post" action="/v">
-	 <input class="input_write" type="text" placeholder="<%= @user.name %>" > </input>
+  <form method="get" action="/settings">
+	 <input class="input_write" type="text" placeholder="name" > </input>
 	 <br>
-	 <input class="input_write" type="text" placeholder="<%= @user.email %>" > </input>
+	 <input class="input_write" type="text" placeholder="email" > </input>
 	 <br>
-	 <input class="input_write" type="text" placeholder="<%= @user.bday %>"> </input>
+	 <input class="input_write" type="text" placeholder="bday"> </input>
 	 <br>
-	 <input class="input_write" type="text" placeholder="<%= @user.password %>"> </input>
+	 <input class="input_write" type="text" placeholder="password"> </input>
 	 <br>
 	 <br>
 	 <br>
-	<a href="/edit-settings"> DELETE ACCOUNT</a>
+	<a  href="/settings"> SAVE CHANGES</a>
 	 <br>	 <br>
-	<a href="/delete-account/"> SAVE CHANGES </a>
+	<a href="/delete-account"> DELETE ACCOUNT </a>
    </form>
 
 </section>
