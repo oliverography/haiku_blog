@@ -8,26 +8,19 @@ PASSWORD
 Edit button
 
 Delete account button -->
-<!-- 
-<%= @user.name %>
-<br>
-<%= @user.email %>
-<br>
-<%= @user.bday %>
-<br>
-<%= @user.password %>
- -->
+<div id="wrapper">
+	<section id="settings">
+	  <!-- ser info fields -->
+	  <form id="form_settings" method="post"  action="/settings">
+			<input class="input_t" type="text" value='<%= @user.name %>' placeholder="name"></input>
+			<input class="input_t" type="text" value='<%= @user.email %>'  placeholder="email"></input>
+			<input class="input_t" type="text" value='<%= @user.bday %>'  placeholder="bday"></input>
+			<input class="input_t" type="text" value='<%= @user.password %>'  placeholder="password"></input>
+			
+			<input id="save_button" type="submit" value="UPDATE USER">
 
-<section id="settings">
-  <!-- ser info fields -->
-  <form method="get" action="/settings" id="form_settings">
-		<input class="input_t" type="text" placeholder="name"></input>
-		<input class="input_t" type="text" placeholder="email"></input>
-		<input class="input_t" type="text" placeholder="bday"></input>
-		<input class="input_t" type="text" placeholder="password"></input>
-		<input class="input-t" type="submit" value="SAVE CHANGES" id="save_button" href="/settings"> </input>
-		<input class="input-t" type="submit" value="DELETE ACCOUNT" id="delete_button" href="/delete-account"> </input>
-  </form>
+			<input id="save_button" type="submit" value="DELETE USER" href="/delete-account">
+	  </form>
+	</section>
+</div>
 
-</section>
- <br>
