@@ -1,41 +1,45 @@
-<header id="profile_header">
-  <h1><%= @user.name.upcase %></h1>
-  <div class="follow_counter">
+<header id="profile">
+  <h2><%= @user.name.upcase %></h2>
+<!--   <div class="follow_counter">
     <span>[#] FOLLOWERS</span>
     <span>[#] FOLLOWING</span>
-  </div>
+  </div> -->
 </header>
-<section id="posts">
+<section id="container">
   <!-- POST MODULE -->
   <% @posts.reverse.each do |post| %>
-    <div class="post">
-
+    <div class="haiku_box">
       <!-- HAIKU -->
-      <div class="post_top"> 
+      <div class="haiku_top"> 
         <p><%= post.line1 %></p>
         <p><%= post.line2 %></p>
         <p><%= post.line3 %></p>
       </div>
       <!-- HAIKU INFO -->
-      <div class="post_bottom">
-        <!-- <h3><%= post.user.name %></h3> -->
+      <div class="haiku_bottom">
+<!--         <h3>
+          <a href="/profile/<%= post.user.id %>">
+            <%= post.user.name.upcase %>
+          </a>
+        </h3> -->
         <div class="like_counter">
-          <a href="/like/<%= post.id %>"><img src="/images/swan.svg"></a>
+          <div class="like_button">
+            <a href="/like/<%= post.id %>"><img src="/images/swan.svg"></a>
+          </div>
           <% if post.likes != 0 %>
-            <span class="divider">|</span>
-            <span class="like_num"><%= post.likes %></span>
+            <div class="like_num">
+              <%= post.likes %>
+            </div>
           <% end %>
         </div>
       </div>
-      <!-- EDIT CORNER -->
+      <!-- EDIT CORNER / IF CURRENT USER OWNS POST -->
       <% if current_user.id == post.user.id %>
         <div class="edit_corner">
-          <a href="/edit/<%= post.id %>"><img src="edit.svg"></a>
-          <a href="/delete/<%= post.id %>"><img src="delete.svg"></a>
+          <a href="/edit/<%= post.id %>"><img src="/images/pencil.svg"></a>
+          <a href="/delete/<%= post.id %>"><img src="/images/delete.svg"></a>
         </div>
       <% end %>
-
     </div>
   <% end %>
-
 </section>

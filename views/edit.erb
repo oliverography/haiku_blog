@@ -1,0 +1,12 @@
+<section id="container">
+  <!-- write form -->
+	<form id="form edit" method="post" action="/edit/<%= @post.id %>">
+    <div class="title edit">
+      <h2>EDIT HAIKU</h2>
+    </div>
+		<input class="input edit" type="text" name="line1" value='<%= @post.line1 %>' placeholder="line 1" required />
+		<input class="input edit" type="text" name="line2" value='<%= @post.line2 %>' placeholder="line 2" required />
+		<input class="input edit" type="text" name="line3" value='<%= @post.line3 %>' placeholder="line 3" required />
+		<input class="button edit" type="submit" value="UPDATE HAIKU" />
+	</form>
+</section>

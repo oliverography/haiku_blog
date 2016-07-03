@@ -24,29 +24,32 @@
 /* ============================================================
   GLOBAL (USED THROUGHOUT WEBSITE)
 ============================================================ */
-
 p {
   font-family: "Berthold Akzidenz Grotesk";
   font-size: 16px;
   line-height: 2em;
+  letter-spacing: 2px;
 }
 
 h1 {
   font-family: "Replica-Regular";
   font-size: 36px;
   line-height: 2em;
+  letter-spacing: 2px;
 }
 
 h2 {
   font-family: "Replica-Regular";
   font-size: 24px;
   line-height: 2em;
+  letter-spacing: 2px;
 }
 
 h3 {
   font-family: "Replica-Bold";
   font-size: 10px;
   line-height: 2em;
+  letter-spacing: 2px;
 }
 
 a {
@@ -54,8 +57,8 @@ a {
   color: black;
 }
 
-.form_title {
-  display: inline-block;
+.title {
+  margin: 0 auto 50px auto;
   padding: 10px 0;
   border-bottom: 1px solid black;
   font-family: "Replica-Regular";
@@ -79,7 +82,8 @@ a {
 }
 
 .button {
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
   padding: 10px 0;
   border: solid 1px black;
   outline: none;
@@ -93,6 +97,28 @@ a {
 .button:hover {
   background-color: #C1C1C1;
   color: white;
+}
+
+header {
+  position: relative;
+  top: 0px;
+  margin: 0 auto;
+  width: 800px;
+  height: 48px;
+  background-color: #282F34;
+  border: solid #282F34;
+  border-width: 0 1px;
+  color: white;
+  text-align: center;
+}
+
+section#container {
+  position: relative;
+  top: 0px;
+  margin: 0 auto;
+  width: 800px;
+  border: solid 1px #C1C1C1;
+  padding-top: 50px;
 }
 
 /* ============================================================
@@ -126,18 +152,8 @@ section#landing {
   text-align: center;
 }
 
-.haiku_top {
+.button.enter {
   display: inline-block;
-  border-bottom: solid 1px black;
-  width: 80%;
-  padding: 0 20px 20px 20px;
-}
-
-.haiku_bottom {
-  margin: 10px 0 80px 0;
-}
-
-.button.sign {
   width: 140px;
   margin: 0 5px;
 }
@@ -155,7 +171,7 @@ section#sign {
   text-align: center;
 }
 
-.sign_form {
+.form.sign {
   position: relative;
   top: 50vh;
   -ms-transform: translate(0,-50%);
@@ -163,18 +179,92 @@ section#sign {
   transform: translate(0,-50%);
 }
 
-.form_title.sign {
+.title.sign {
   width: 75%;
-  margin-bottom: 50px;
 }
 
 .input.sign {
   width: 75%;
 }
 
-.button.sign-submit {
+.button.sign {
   width: 75%;
   margin-top: 50px;
+}
+
+/* ============================================================
+  HAIKU BOX
+============================================================ */
+.haiku_box {
+  position: relative;
+  margin: 0 auto 50px auto;
+  width: 400px;
+  border: solid 1px #C1C1C1;
+  text-align: center;
+}
+
+.haiku_top {
+  display: inline-block;
+  border-bottom: solid 1px #C1C1C1;
+  width: 250px;
+  padding: 40px 0;
+}
+
+.haiku_bottom {
+  margin: 10px 0 40px 0;
+}
+
+.haiku_box:hover .edit_corner {
+  display: block;
+}
+
+.edit_corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  display: none;
+}
+
+.edit_corner img {
+  width: 15px;
+  margin-left: 10px;
+}
+
+/* ============================================================
+  LIKE COUNTER
+============================================================ */
+.like_counter {
+  margin-top: 5px;
+}
+
+.like_counter img {
+  width: 20px;
+}
+
+.like_button {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-right: -2px;
+  font-family: "Berthold Akzidenz Grotesk";
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  vertical-align: middle;
+}
+
+.like_num {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-left: -2px;
+  border-left: solid 1px #C1C1C1;
+  font-family: "Berthold Akzidenz Grotesk";
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  vertical-align: middle;
 }
 
 /* ============================================================
@@ -250,6 +340,22 @@ width: 100%;
    color: #fff;
 }
 
+/* ============================================================
+  EDIT HAIKU PAGE
+============================================================ */
+.title.edit {
+  width: 500px;
+}
+
+.input.edit {
+  width: 500px;
+}
+
+.button.edit {
+  width: 500px;
+  margin-top: 50px;
+}
+
 
 /* ============================================================
   SETTINGS PAGE
@@ -257,31 +363,6 @@ width: 100%;
 
 
 
-
-/* ============================================================
-  LIKE COUNTER
-============================================================ */
-.like_counter img {
-  width: 30px;
-}
-
-/* ============================================================
-  POST
-============================================================ */
-.post {
-  position: relative;
-}
-
-.edit_corner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: none;
-}
-
-.post:hover .edit_corner {
-  display: block;
-}
 
 
 /* ============================================================
