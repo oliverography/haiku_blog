@@ -164,11 +164,27 @@ end
 # ============================================================
 #   EDIT/DELETE POSTS
 # ============================================================
+get "/edit/:id" do
+  @post = Post.find(params[:id])
+
+  erb :edit
+end
+
+post "/edit/:id" do
+  @post = Post.find(params[:id])
+  @post.update(
+    line1: params[:line1],
+    line2: params[:line2],
+    line3: params[:line3]
+  )
+  redirect "/profile"
+end
+
 get "/delete/:id" do
   @post = Post.find(params[:id])
   @post.destroy
 
-  redirect "/"
+  redirect back
 end
 
 # ============================================================

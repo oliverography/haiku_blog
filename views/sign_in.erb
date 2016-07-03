@@ -1,10 +1,27 @@
-<section id="sign-in" class="morning">
+<section id="landing" class="morning">
   <div id="logo">
     HAIKU
   </div>
-  <form id="sign_form" method="post" action="/sign-in">
-    <input class="sign_input" type="email" name="email" placeholder="email" required />
-    <input class="sign_input" type="password" name="password" placeholder="password" required />
-    <input class="sign_button" type="submit" value="SIGN IN">
+  <div id="landing_box">
+    <div class="haiku_top">
+      <p>Whitecaps on the bay:</p>
+      <p>A broken signboard banging</p>
+      <p>In the April wind.</p>
+    </div>
+    <div class="haiku_bottom">
+      <h3>RICHARD WRIGHT</h3>
+    </div>
+    <a class="button sign" href="/sign-up">SIGN UP</a>
+    <a class="button sign" href="/sign-in">SIGN IN</a>
+  </div>
+</section>
+<section id="sign">
+  <form class="form sign" method="post" action="/sign-in">
+    <div class="title sign">
+      <h2>WELCOME BACK</h2>
+    </div>
+    <input class="input sign" type="email" name="email" placeholder="email" required />
+    <input class="input sign" type="password" name="password" placeholder="password" required />
+    <input class="button sign" type="submit" value="SIGN IN">
   </form>
 </section>
