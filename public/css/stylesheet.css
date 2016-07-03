@@ -95,9 +95,9 @@ a {
   display: block;
   margin: 0 auto;
   padding: 10px 0;
-  border: solid 1px black;
+  /*border: solid 1px black;*/
   outline: none;
-  background-color: transparent;
+  background-color: white;
   font-family: "Replica-Regular";
   font-size: 14px;
   letter-spacing: 2px;
@@ -105,7 +105,7 @@ a {
 }
 
 .button:hover {
-  background-color: #C1C1C1;
+  background-color: #282f34;
   color: white;
 }
 
@@ -113,7 +113,7 @@ header {
   position: relative;
   top: 0px;
   margin: 0 auto;
-  width: 800px;
+  width: 80%;
   height: 48px;
   background-color: #282F34;
   border: solid #282F34;
@@ -126,7 +126,7 @@ section#container {
   position: relative;
   top: 0px;
   margin: 0 auto;
-  width: 800px;
+  width: 80%;
   border: solid 1px #C1C1C1;
   padding-top: 50px;
 }
@@ -136,7 +136,7 @@ section#container {
 ============================================================ */
 section#landing {
   height: 100vh;
-  background-position: 50% 50%;
+  /*background-position: 50% 50%;*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -148,8 +148,8 @@ section#landing {
 
 #logo {
   position: absolute;
-  top: 20vh;
-  left: 15vw;
+  top: 10vh;
+  left: 10vw;
   font-family: "Replica-Regular";
   font-size: 48px;
   letter-spacing: 4px;
@@ -164,6 +164,7 @@ section#landing {
 
 .button.enter {
   display: inline-block;
+  /*border: 1px solid black;*/
   width: 140px;
   margin: 0 5px;
 }
@@ -176,7 +177,7 @@ section#sign {
   top: 0;
   right: 0;
   background: rgba(255,255,255,1);
-  width: 500px;
+  width: 32%;
   height: 100vh;
   text-align: center;
 }
@@ -198,6 +199,7 @@ section#sign {
 }
 
 .button.sign {
+  border: 1px solid black;
   width: 75%;
   margin-top: 50px;
 }
@@ -355,16 +357,16 @@ li:hover{
 
 #write{
   margin: 0 auto;
-  width: 60%;
+  width: 80%;
   height: 700px;
   border: 1px solid #c1c1c1;
 }
 
 
 #form_write{
- width: 80%;
+ width: 60%;
   height: 500px;
-  margin-left: 10%;
+  margin-left: 20%;
   margin-top: 30%;
 }
 
@@ -403,22 +405,30 @@ li:hover{
 /* ============================================================
   EDIT HAIKU PAGE
 ============================================================ */
+
+
+/* ============================================================
+  SETTINGS PAGE
+============================================================ */
+
+
 .title.edit {
   width: 500px;
 }
 
 #settings{
   margin: 0 auto;
-  width: 60%;
+  width: 80%;
   height: 700px;
   border: 1px solid #c1c1c1;
+  /*background-color: #ccc;*/
 }
 
 #form_settings{
-  width: 80%;
+  width: 60%;
   height: 500px;
-  margin-left: 10%;
-  margin-top: 30%;
+  margin-left: 20%;
+  margin-top: 20%;
 }
 
 .input_t{
@@ -433,6 +443,19 @@ li:hover{
   font-family: "Replica-Light";
   letter-spacing: 2px;
   border-bottom: 1px solid #c1c1c1;
+}
+
+
+#edit_button{
+  font-family: "Replica-Light";
+  letter-spacing: 2px;
+  width: 80%;
+  height: 50px;
+  margin-left: 10%;
+  margin-top: 15%;
+  margin-bottom: 10%;
+  border: 1px solid #c1c1c1;
+  background-color: #fff;
 }
 
 #save_button{
@@ -467,13 +490,6 @@ li:hover{
   background-color: #e8b1b1;
   color: #fff;
 }
-
-/* ============================================================
-  SETTINGS PAGE
-============================================================ */
-
-
-
 
 
 /* ============================================================
