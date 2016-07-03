@@ -8,7 +8,7 @@ PASSWORD
 Edit button
 
 Delete account button -->
-
+<!-- 
 <%= @user.name %>
 <br>
 <%= @user.email %>
@@ -16,25 +16,18 @@ Delete account button -->
 <%= @user.bday %>
 <br>
 <%= @user.password %>
-
+ -->
 
 <section id="settings">
   <!-- ser info fields -->
-  <form method="get" action="/settings">
-	 <input class="input_write" type="text" placeholder="name" > </input>
-	 <br>
-	 <input class="input_write" type="text" placeholder="email" > </input>
-	 <br>
-	 <input class="input_write" type="text" placeholder="bday"> </input>
-	 <br>
-	 <input class="input_write" type="text" placeholder="password"> </input>
-	 <br>
-	 <br>
-	 <br>
-	<a  href="/settings"> SAVE CHANGES</a>
-	 <br>	 <br>
-	<a href="/delete-account"> DELETE ACCOUNT </a>
-   </form>
+  <form method="get" action="/settings" id="form_settings">
+		<input class="input_t" type="text" placeholder="name"></input>
+		<input class="input_t" type="text" placeholder="email"></input>
+		<input class="input_t" type="text" placeholder="bday"></input>
+		<input class="input_t" type="text" placeholder="password"></input>
+		<input class="input-t" type="submit" value="SAVE CHANGES" id="save_button" href="/settings"> </input>
+		<input class="input-t" type="submit" value="DELETE ACCOUNT" id="delete_button" href="/delete-account"> </input>
+  </form>
 
 </section>
  <br>
