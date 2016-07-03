@@ -9,22 +9,33 @@
   <body>
     <% if session[:user_id] %>
       <nav>
-        <h1>HAIKU</h1>
+        <div class="top">
+           <section id="title">HAIKU</section>
+        </div>
         <ul>
-          <li>
-            <a href="/home">HOME</a>
-          </li>
-          <li>
-           
-          </li>
-          <li><a href="/write">WRITE</a></li>
-          <li><a href="/settings">SETTINGS</a></li>
-          <li><a href="/sign-out">SIGN OUT</a></li>
+          <a href="/home">
+            <li><h4>HOME</h4></li>
+          </a>
+          <a href="/profile">
+          <li><h4>PROFILE</h4></li>
+          </a>
+          <a href="/write">
+          <li><h4>WRITE</h4></li>
+          </a>
+          <a href="/settings">
+          <li><h4>SETTINGS</h4></li>
+          </a>
+          <a href="/sign-out">
+          <li><h4>LOG OUT</h4></li>
+          </a>
         </ul>
       </nav>
     <% end %>
 
-    <%= yield %>
+
+    <div id="wrapper">
+        <%= yield %>
+    </div>
 
   </body>
 </html>
