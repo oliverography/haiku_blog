@@ -127,7 +127,6 @@ post "/settings" do
 
     redirect "/settings" 
 
-redirect "/"  
 end
 
 # delete posts and user 
