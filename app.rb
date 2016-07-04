@@ -15,14 +15,19 @@ get "/" do
   else
     erb :landing1
   end
-  # add in extra landing pages based on timestamp (dawn, morning, afternoon, dusk, night)
 end
+
+# add in extra landing pages based on timestamp (dawn, morning, afternoon, dusk, night)
 
 # ============================================================
 #   SIGN-UP/SIGN-IN/SIGN-OUT
 # ============================================================
 get "/sign-up" do
-  erb :sign_up
+  if session[:user_id]
+    redirect "/home"
+  else
+    erb :sign_up
+  end
 end
 
 post "/sign-up" do
@@ -33,30 +38,29 @@ post "/sign-up" do
     password: params[:password]
   )
   session[:user_id] = @user.id
-  flash[:notice] = "You have signed up"
 
   redirect "/home"
 end
 
 get "/sign-in" do
-  erb :sign_in
+  if session[:user_id]
+    redirect "/home"
+  else
+    erb :sign_in
+  end
 end
 
 post "/sign-in" do
   @user = User.where(email: params[:email]).first
   if @user && @user.password == params[:password]
     session[:user_id] = @user.id
-    flash[:notice] = "You are signed in"
 
     redirect "/home"
   else
-    redirect "/sign-in"
     flash[:error] = "Sorry, your email and password do not match."
-  end
-end
 
-get "/sign-in-failed" do
-  erb :sign_in_failed
+    redirect "/sign-in"
+  end
 end
 
 get "/sign-out" do
@@ -79,7 +83,11 @@ end
 get "/home" do
   @posts = Post.all
 
-  erb :home
+  if session[:user_id]
+    erb :home
+  else
+    redirect "/"
+  end
 end
 
 # ============================================================
@@ -104,7 +112,6 @@ end
 # ============================================================
 #   SETTINGS
 # ============================================================
-
 get "/settings" do
   @user = User.find(session[:user_id]) 
   erb :settings
@@ -128,7 +135,6 @@ post "/settings" do
     redirect "/settings" 
 
 end
-
 
 # delete the Current user
 post "/delete-account" do 
@@ -163,8 +169,6 @@ post "/write" do
     likes: 0
   )
 
-  flash[:notice] = "you write a haiku"
-
   redirect "/profile"
 end
 
@@ -174,7 +178,11 @@ end
 get "/edit/:id" do
   @post = Post.find(params[:id])
 
-  erb :edit
+  if session[:user_id]
+    erb :edit
+  else
+    redirect "/"
+  end
 end
 
 post "/edit/:id" do
@@ -203,7 +211,6 @@ get "/like/:id" do
 
   redirect back
 end
-
 
 # ============================================================
 #   FOLLOWING

@@ -249,7 +249,7 @@ li:hover {
 .haiku_box {
   position: relative;
   margin: 0 auto 50px auto;
-  width: 400px;
+  width: 450px;
   border: solid 1px #C1C1C1;
   text-align: center;
 }
@@ -261,7 +261,7 @@ li:hover {
 .haiku_top {
   display: inline-block;
   border-bottom: solid 1px #C1C1C1;
-  width: 250px;
+  width: 350px;
   padding: 40px 0;
 }
 

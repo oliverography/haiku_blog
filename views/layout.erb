@@ -7,6 +7,7 @@
     <title>HAIKU</title>
   </head>
   <body>
+    <!-- NAV BAR IF USER IS LOGGED IN -->
     <% if session[:user_id] %>
       <nav>
         <div id="nav_logo">
@@ -31,7 +32,7 @@
         </ul>
       </nav>
     <% end %>
-
+    <!-- ERB INSERTION POINT -->
     <%= yield %>
    
   </body>
