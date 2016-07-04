@@ -290,43 +290,46 @@ section#sign {
   NAV / LAYOUT 
 ============================================================ */
 nav {
-  width: 16%;
-  height: 700px;
-  border-right: 1px solid #c1c1c1;
+  width: 15%;
+  height: 100vh;
+  border-right: 1px solid #C1C1C1;
   float: left;
   position: fixed;
 }
 
-#title{
+#title {
+  position: absolute;
+  top: 10px;
+  left: 15px;
   font-family: "Replica-Regular";
   font-size: 30pt;
-  padding-top: 5px;
-  padding-left: 30px;
 }
-
+/*
 .top{
   width: 100%;
   height: 300px;
-}
+}*/
 
 ul{
-  float: left;
-  margin: 0px;
-  padding: 0px;
+  position: absolute;
+  bottom: 0;
+/*  float: left;*/
+/*  margin: 0px;
+  padding: 0px;*/
   height: 400px;
   width: 100%;
   /*background-color: #ccc;*/
 }
 
 li{
-  margin: 0px;
-  padding: 0px;
+/*  margin: 0px;
+  padding: 0px;*/
   height: 80px;
   border-right: none;
   border-left: none;
   border-top: 1px solid #c1c1c1;
   /*border: 1px solid black;*/
-  list-style-type: none;
+  /*list-style-type: none;*/
 }
 
 li:hover{
@@ -336,9 +339,9 @@ li:hover{
 
 
 #wrapper{
-  width: 83%;
-  height: 700px;
-  margin-left:16%;
+  width: 85%;
+  height: 100vh;
+  margin-left:15%;
   float: left;
 }
 
