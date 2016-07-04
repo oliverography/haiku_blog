@@ -1,13 +1,10 @@
 <!-- Settings page
 current user.
-
 NAME
 EMAIL
 BIRTHDAY
 PASSWORD
-Edit button
-
-Delete account button -->
+Edit button -->
 <div id="wrapper">
 	<section id="settings">
 	  <!-- ser info fields -->
@@ -17,11 +14,13 @@ Delete account button -->
 			<input class="input_t" type="text" name="bday" value="<%= @user.bday %> " placeholder="bday"></input>
 			<input class="input_t" type="text" name="password" value="<%= @user.password %>" placeholder="password"></input>
 			<input id="save_button" type="submit" value="UPDATE USER">
-
 	  </form>
+
+	  <!-- Delete account button  -->
 	  <form method="post" action="/delete-account">
 	  	<input id="delete_button" type="submit" value="DELETE USER">
 	  </form>
+
 	</section>
 </div>
 
