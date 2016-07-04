@@ -130,9 +130,11 @@ post "/settings" do
 end
 
 
-
 # delete the Current user
 post "/delete-account" do 
+  @post = Post.find(params[:id])
+  @post.destroy
+  
   @user = User.find(session[:user_id])
   @user.destroy
 
