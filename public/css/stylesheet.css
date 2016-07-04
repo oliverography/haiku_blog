@@ -480,14 +480,15 @@ li:hover{
   width: 80%;
   height: 50px;
   margin-left: 10%;
-  margin-top: 20%;
+  margin-top: 10%;
+  margin-bottom: 10%;
   border: 1px solid #c1c1c1;
   background-color: #fff;
   color: #c1c1c1;
 }
 
 #delete_button:hover{
-  background-color: #e8b1b1;
+  background-color: #ffb1b1;
   color: #fff;
 }
 

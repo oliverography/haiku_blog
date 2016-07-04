@@ -11,15 +11,16 @@ Delete account button -->
 <div id="wrapper">
 	<section id="settings">
 	  <!-- ser info fields -->
-	  <form id="form_settings" method="post"  action="/settings">
-			<input class="input_t" type="text" value='<%= @user.name %>' placeholder="name"></input>
-			<input class="input_t" type="text" value='<%= @user.email %>'  placeholder="email"></input>
-			<input class="input_t" type="text" value='<%= @user.bday %>'  placeholder="bday"></input>
-			<input class="input_t" type="text" value='<%= @user.password %>'  placeholder="password"></input>
-			
+	  <form id="form_settings" method="post" action="/settings">
+			<input class="input_t" type="text" name="name" value="<%= @user.name %>" placeholder="name"></input>
+			<input class="input_t" type="text" name="email" value="<%= @user.email %>"  placeholder="email"></input>
+			<input class="input_t" type="text" name="bday" value="<%= @user.bday %> " placeholder="bday"></input>
+			<input class="input_t" type="text" name="password" value="<%= @user.password %>" placeholder="password"></input>
 			<input id="save_button" type="submit" value="UPDATE USER">
 
-			<input id="save_button" type="submit" value="DELETE USER" href="/delete-account">
+	  </form>
+	  <form method="post" action="/delete-account">
+	  	<input id="delete_button" type="submit" value="DELETE USER">
 	  </form>
 	</section>
 </div>
