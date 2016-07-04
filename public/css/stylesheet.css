@@ -295,7 +295,6 @@ nav {
   border-right: 1px solid #c1c1c1;
   float: left;
   position: fixed;
-
 }
 
 #title{
@@ -341,7 +340,6 @@ li:hover{
   height: 700px;
   margin-left:16%;
   float: left;
-
 }
 
 /* ============================================================
@@ -421,7 +419,6 @@ li:hover{
   width: 80%;
   height: 700px;
   border: 1px solid #c1c1c1;
-  /*background-color: #ccc;*/
 }
 
 #form_settings{
