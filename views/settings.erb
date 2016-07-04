@@ -1,24 +1,20 @@
-<!-- Settings page
-current user.
-NAME
-EMAIL
-BIRTHDAY
-PASSWORD
-Edit button -->
 <div id="wrapper">
-	<section id="settings">
-	  <!-- ser info fields -->
-	  <form id="form_settings" method="post" action="/settings">
-			<input class="input_t" type="text" name="name" value="<%= @user.name %>" placeholder="name"></input>
-			<input class="input_t" type="text" name="email" value="<%= @user.email %>"  placeholder="email"></input>
-			<input class="input_t" type="text" name="bday" value="<%= @user.bday %> " placeholder="bday"></input>
-			<input class="input_t" type="text" name="password" value="<%= @user.password %>" placeholder="password"></input>
-			<input id="save_button" type="submit" value="UPDATE USER">
+	<section id="container">
+	  <!-- settings -->
+	  <form class="form settings" method="post" action="/settings">
+      <div class="title settings">
+        <h2>SETTINGS</h2>
+      </div>
+			<input class="input settings" type="text" name="name" value="<%= @user.name %>" placeholder="name" required />
+			<input class="input settings" type="text" name="email" value="<%= @user.email %>"  placeholder="email" required />
+			<input class="input settings" type="text" name="bday" value="<%= @user.bday %> " placeholder="bday" required />
+			<input class="input settings" type="password" name="password" value="<%= @user.password %>" placeholder="password" required />
+			<input class="button settings" type="submit" value="UPDATE USER" />
 	  </form>
 
 	  <!-- Delete account button  -->
-	  <form method="post" action="/delete-account">
-	  	<input id="delete_button" type="submit" value="DELETE USER">
+	  <form class="form delete_user" method="post" action="/delete-account">
+	  	<input class="button delete_user" type="submit" value="DELETE USER">
 	  </form>
 
 	</section>
