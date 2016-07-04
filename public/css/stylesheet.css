@@ -35,8 +35,6 @@ h1 {
   font-family: "Replica-Regular";
   font-size: 30pt;
   line-height: 2em;
-  padding-top: 5px;
-  padding-left: 30px;
   letter-spacing: 2px;
 }
 
@@ -54,17 +52,17 @@ h3 {
   letter-spacing: 2px;
 }
 
-h4{
-  font-family: "Replica-Light";
-  font-size:11pt;
-  letter-spacing: 2px;
-  padding-left: 20px;
-  padding-top: 15px;
-}
-
 a {
   text-decoration: none;
   color: black;
+}
+
+.form {
+  position: relative;
+  top: 50vh;
+  -ms-transform: translate(0,-50%);
+  -webkit-transform: translate(0,-50%);
+  transform: translate(0,-50%);
 }
 
 .title {
@@ -81,12 +79,10 @@ a {
   display: block;
   margin: 0 auto 30px auto;
   padding: 10px 0;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border: none;
   border-bottom: 1px solid #C1C1C1;
   font-family: "Berthold Akzidenz Grotesk";
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 2px;
   text-align: center;
 }
@@ -95,13 +91,14 @@ a {
   display: block;
   margin: 0 auto;
   padding: 10px 0;
-  /*border: solid 1px black;*/
+  border: solid 1px black;
   outline: none;
   background-color: white;
   font-family: "Replica-Regular";
   font-size: 14px;
   letter-spacing: 2px;
   text-align: center;
+  margin-top: 50px;
 }
 
 .button:hover {
@@ -113,7 +110,7 @@ header {
   position: relative;
   top: 0px;
   margin: 0 auto;
-  width: 80%;
+  width: 70%;
   height: 48px;
   background-color: #282F34;
   border: solid #282F34;
@@ -126,9 +123,12 @@ section#container {
   position: relative;
   top: 0px;
   margin: 0 auto;
-  width: 80%;
-  border: solid 1px #C1C1C1;
-  padding-top: 50px;
+  width: 70%;
+  min-height: 100vh;
+  border-left: solid 1px #C1C1C1;
+  border-right: solid 1px #C1C1C1;
+  border-top: solid 1px transparent;
+  border-bottom: solid 1px transparent;
 }
 
 /* ============================================================
@@ -136,7 +136,7 @@ section#container {
 ============================================================ */
 section#landing {
   height: 100vh;
-  /*background-position: 50% 50%;*/
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -164,7 +164,6 @@ section#landing {
 
 .button.enter {
   display: inline-block;
-  /*border: 1px solid black;*/
   width: 140px;
   margin: 0 5px;
 }
@@ -182,14 +181,6 @@ section#sign {
   text-align: center;
 }
 
-.form.sign {
-  position: relative;
-  top: 50vh;
-  -ms-transform: translate(0,-50%);
-  -webkit-transform: translate(0,-50%);
-  transform: translate(0,-50%);
-}
-
 .title.sign {
   width: 75%;
 }
@@ -199,9 +190,57 @@ section#sign {
 }
 
 .button.sign {
-  border: 1px solid black;
   width: 75%;
-  margin-top: 50px;
+}
+
+/* ============================================================
+  NAV / LAYOUT 
+============================================================ */
+nav {
+  width: 15%;
+  height: 100vh;
+  border-right: 1px solid #C1C1C1;
+  float: left;
+  position: fixed;
+}
+
+#nav_logo {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-family: "Replica-Regular";
+  font-size: 30pt;
+}
+
+ul {
+  position: absolute;
+  bottom: 0;
+  height: 400px;
+  width: 100%;
+}
+
+li {
+  height: 65px;
+  border-right: none;
+  border-left: none;
+  border-top: 1px solid #C1C1C1;
+  padding-left: 20px;
+  padding-top: 15px;
+  font-family: "Replica-Light";
+  font-size: 11pt;
+  letter-spacing: 2px;
+}
+
+li:hover {
+  background-color: #282f34;
+  color: white;
+}
+
+#wrapper {
+  width: 85%;
+  height: 100vh;
+  margin-left: 15%;
+  float: left;
 }
 
 /* ============================================================
@@ -215,6 +254,10 @@ section#sign {
   text-align: center;
 }
 
+.haiku_box:first-child {
+  margin-top: 100px;
+}
+
 .haiku_top {
   display: inline-block;
   border-bottom: solid 1px #C1C1C1;
@@ -224,10 +267,6 @@ section#sign {
 
 .haiku_bottom {
   margin: 10px 0 40px 0;
-}
-
-.haiku_box:hover .edit_corner {
-  display: block;
 }
 
 .edit_corner {
@@ -240,7 +279,12 @@ section#sign {
 
 .edit_corner img {
   width: 15px;
+  height: 15px;
   margin-left: 10px;
+}
+
+.haiku_box:hover .edit_corner {
+  display: block;
 }
 
 /* ============================================================
@@ -252,6 +296,7 @@ section#sign {
 
 .like_counter img {
   width: 20px;
+  height: 20px;
 }
 
 .like_button {
@@ -259,10 +304,6 @@ section#sign {
   width: 40px;
   height: 20px;
   margin-right: -2px;
-  font-family: "Berthold Akzidenz Grotesk";
-  font-size: 12px;
-  line-height: 20px;
-  letter-spacing: 2px;
   vertical-align: middle;
 }
 
@@ -280,266 +321,38 @@ section#sign {
 }
 
 /* ============================================================
-  HOME PAGE
+  WRITE/EDIT/SETTINGS PAGE
 ============================================================ */
-
-
-
-
-/* ============================================================
-  NAV / LAYOUT 
-============================================================ */
-nav {
-  width: 15%;
-  height: 100vh;
-  border-right: 1px solid #C1C1C1;
-  float: left;
-  position: fixed;
+.title.write, .title.edit, .title.settings {
+  width: 50%;
 }
 
-#title {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-family: "Replica-Regular";
-  font-size: 30pt;
-}
-/*
-.top{
-  width: 100%;
-  height: 300px;
-}*/
-
-ul{
-  position: absolute;
-  bottom: 0;
-/*  float: left;*/
-/*  margin: 0px;
-  padding: 0px;*/
-  height: 400px;
-  width: 100%;
-  /*background-color: #ccc;*/
+.input.write, .input.edit, .input.settings {
+  width: 50%;
 }
 
-li{
-/*  margin: 0px;
-  padding: 0px;*/
-  height: 80px;
-  border-right: none;
-  border-left: none;
-  border-top: 1px solid #c1c1c1;
-  /*border: 1px solid black;*/
-  /*list-style-type: none;*/
+.button.write, .button.edit, .button.settings {
+  width: 50%;
 }
 
-li:hover{
-  background-color:#282f34;
-  color: #fff;
+.form.delete_user {
+  position: relative;
+  top: 25vh;
 }
 
-
-#wrapper{
-  width: 85%;
-  height: 100vh;
-  margin-left:15%;
-  float: left;
+.button.delete_user {
+  width: 50%;
 }
 
-/* ============================================================
-  PROFILE PAGE
-============================================================ */
-
-
-
-
-/* ============================================================
-  WRITE PAGE
-============================================================ */
-
-#write{
-  margin: 0 auto;
-  width: 80%;
-  height: 700px;
-  border: 1px solid #c1c1c1;
+.button.delete_user:hover {
+  background-color: #FFB1B1;
+  color: white;
 }
-
-
-#form_write{
- width: 60%;
-  height: 500px;
-  margin-left: 20%;
-  margin-top: 30%;
-}
-
-.input_write{
-  font-family: "Replica-Light";
-  margin-left: 10%;
-  width: 80%;
-  height: 40px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  margin-top: 10px;
-  text-align: center;
-  letter-spacing: 2px;
-  border-bottom: 1px solid #c1c1c1;
-}
-
-#button_write{
-  font-family: "Replica-Regular";
-  font-size: 13px;
-  letter-spacing: 3px;
-  width: 80%;
-  height: 50px;
-  margin-left: 10%;
-  margin-top: 15%;
-  border: 1px solid #c1c1c1;
-  background-color: #fff;
-}
-
-#button_write:hover{
-   letter-spacing: 2px;
-   background-color: #000;
-   color: #fff;
-}
-
-/* ============================================================
-  EDIT HAIKU PAGE
-============================================================ */
-
-#edit{
-  margin: 0 auto;
-  width: 80%;
-  height: 700px;
-  border: 1px solid #c1c1c1;
-}
-
-#form_edit{
-  width: 60%;
-  height: 500px;
-  margin-left: 20%;
-  margin-top: 30%;
-}
-
-.input_t{
-  margin-left: 10%;
-  width: 80%;
-  height: 40px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  margin-top: 10px;
-  text-align: center;
-  font-family: "Replica-Light";
-  letter-spacing: 2px;
-  border-bottom: 1px solid #c1c1c1;
-}
-
-
-#edit_button{
-  font-family: "Replica-Light";
-  letter-spacing: 2px;
-  width: 80%;
-  height: 50px;
-  margin-left: 10%;
-  margin-top: 15%;
-  border: 1px solid #c1c1c1;
-  background-color: #fff;
-}
-
-#edit_button:hover{
-  background-color:#282f34;
-  color: #fff;
-}
-/* ============================================================
-  SETTINGS PAGE
-============================================================ */
-
-
-.title.edit {
-  width: 500px;
-}
-
-#settings{
-  margin: 0 auto;
-  width: 80%;
-  height: 700px;
-  border: 1px solid #c1c1c1;
-}
-
-#form_settings{
-  width: 60%;
-  height: 500px;
-  margin-left: 20%;
-  margin-top: 30%;
-}
-
-.input_t{
-  margin-left: 10%;
-  width: 80%;
-  height: 40px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  margin-top: 10px;
-  text-align: center;
-  font-family: "Replica-Light";
-  letter-spacing: 2px;
-  border-bottom: 1px solid #c1c1c1;
-}
-
-
-#edit_button{
-  font-family: "Replica-Light";
-  letter-spacing: 2px;
-  width: 80%;
-  height: 50px;
-  margin-left: 10%;
-  margin-top: 15%;
-  margin-bottom: 10%;
-  border: 1px solid #c1c1c1;
-  background-color: #fff;
-}
-
-#save_button{
-  font-family: "Replica-Light";
-  letter-spacing: 2px;
-  width: 80%;
-  height: 50px;
-  margin-left: 10%;
-  margin-top: 15%;
-  border: 1px solid #c1c1c1;
-  background-color: #fff;
-}
-
-#save_button:hover{
-  background-color:#282f34;
-  color: #fff;
-}
-
-#delete_button{
-  font-family: "Replica-Light";
-  letter-spacing: 2px;
-  width: 80%;
-  height: 50px;
-  margin-left: 10%;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  border: 1px solid #c1c1c1;
-  background-color: #fff;
-  color: #c1c1c1;
-}
-
-#delete_button:hover{
-  background-color: #ffb1b1;
-  color: #fff;
-}
-
 
 /* ============================================================
   FOLLOW MODAL
 ============================================================ */
-#modal {
+/*#modal {
   position: absolute;
   z-index: 20;
-}
+}*/

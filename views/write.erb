@@ -1,11 +1,14 @@
- <div id="wrapper">
-	<section id="write">
+<div id="wrapper">
+	<section id="container">
 	  <!-- write form -->
-		<form id="form_write" method="post" action="/write">
-			<input class="input_write" type="text" name="line1" placeholder="five syllables"></input>
-			<input class="input_write" type="text" name="line2" placeholder="seven syllables"></input>
-			<input class="input_write" type="text" name="line3" placeholder="five syllables"></input>
-			<input id="button_write" type="submit" value="HAIKU"></input>
+		<form class="form write" method="post" action="/write">
+      <div class="title write">
+        <h2>WRITE A HAIKU</h2>
+      </div>
+			<input class="input write" type="text" name="line1" placeholder="line 1" required />
+			<input class="input write" type="text" name="line2" placeholder="line 2" required />
+			<input class="input write" type="text" name="line3" placeholder="line 3" required />
+			<input class="button write" type="submit" value="POST HAIKU" />
 		</form>
 	</section>
 </div>
