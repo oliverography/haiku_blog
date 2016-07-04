@@ -127,21 +127,21 @@ post "/settings" do
 
     redirect "/settings" 
 
+redirect "/"  
 end
 
+# delete posts and user 
 
-# delete the Current user
-post "/delete-account" do 
-  @post = Post.find(params[:id])
-  @post.destroy
-  
-  @user = User.find(session[:user_id])
+post "/delete-account" do
+
+  @user = User.find(params[:id])
+  @user.posts.destroy_all
   @user.destroy
-
+ 
   flash[:notice] = "current user deleted, we will miss you."
 
   redirect "/"
-end 
+end
 
 # ============================================================
 #   WRITE
@@ -208,4 +208,3 @@ end
 # ============================================================
 #   FOLLOWING
 # ============================================================
-
