@@ -404,7 +404,50 @@ li:hover{
   EDIT HAIKU PAGE
 ============================================================ */
 
+#edit{
+  margin: 0 auto;
+  width: 80%;
+  height: 700px;
+  border: 1px solid #c1c1c1;
+}
 
+#form_edit{
+  width: 60%;
+  height: 500px;
+  margin-left: 20%;
+  margin-top: 30%;
+}
+
+.input_t{
+  margin-left: 10%;
+  width: 80%;
+  height: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Replica-Light";
+  letter-spacing: 2px;
+  border-bottom: 1px solid #c1c1c1;
+}
+
+
+#edit_button{
+  font-family: "Replica-Light";
+  letter-spacing: 2px;
+  width: 80%;
+  height: 50px;
+  margin-left: 10%;
+  margin-top: 15%;
+  border: 1px solid #c1c1c1;
+  background-color: #fff;
+}
+
+#edit_button:hover{
+  background-color:#282f34;
+  color: #fff;
+}
 /* ============================================================
   SETTINGS PAGE
 ============================================================ */
@@ -425,7 +468,7 @@ li:hover{
   width: 60%;
   height: 500px;
   margin-left: 20%;
-  margin-top: 20%;
+  margin-top: 30%;
 }
 
 .input_t{
