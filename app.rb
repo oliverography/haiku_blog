@@ -137,7 +137,6 @@ post "/delete-account" do
   session[:user_id] = nil
  
   flash[:notice] = "current user deleted, we will miss you."
-
   redirect "/"
 end
 
