@@ -337,14 +337,15 @@ li:hover {
 
 .form.delete_user {
   position: relative;
-  top: 25vh;
+  top: 20vh;
 }
 
 .button.delete_user {
   width: 50%;
+  color: #C1C1C1;
 }
 
-.button.delete_user:hover {
+.button.delete_user:hover{
   background-color: #FFB1B1;
   color: white;
 }
