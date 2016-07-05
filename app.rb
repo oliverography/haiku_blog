@@ -119,8 +119,7 @@ end
 
 # updating the Current user information
 post "/settings" do
-  @user = User.find(session[:user_id])
-  @user.update(
+  current_user.update(
     name: params[:name],
     email: params[:email],
     bday: params[:bday],
@@ -133,9 +132,9 @@ end
 
 # delete posts and user 
 post "/delete-account" do
-  @user = User.find(params[:id])
-  @user.posts.destroy_all
-  @user.destroy
+  current_user.posts.destroy_all
+  current_user.destroy
+  session[:user_id] = nil
  
   flash[:notice] = "current user deleted, we will miss you."
 

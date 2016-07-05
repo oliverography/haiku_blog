@@ -135,10 +135,12 @@ section#container {
   LANDING PAGE
 ============================================================ */
 section#landing {
+  position: relative;
+  /*left: -500px;*/
   height: 100vh;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /*background-attachment: fixed;*/
   background-size: cover;
 }
 
@@ -147,6 +149,7 @@ section#landing {
 }
 
 #logo {
+  z-index: 100;
   position: absolute;
   top: 10vh;
   left: 10vw;
@@ -168,15 +171,19 @@ section#landing {
   margin: 0 5px;
 }
 
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
 /* ============================================================
   SIGN-UP/SIGN-IN PAGES
 ============================================================ */
 section#sign {
   position: absolute;
   top: 0;
-  right: 0;
-  background: rgba(255,255,255,1);
-  width: 32%;
+  right: -500px;
+  width: 500px;
   height: 100vh;
   text-align: center;
 }
