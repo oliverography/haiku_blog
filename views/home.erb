@@ -3,6 +3,23 @@
     <h2>RECENT HAIKU</h2>
   </header>
   <section id="container">
+    <!-- NO POSTS YET MSG -->
+    <% if @posts.length == 0 %>
+      <div class="haiku_box">
+        <div class="haiku_top"> 
+          <p>Alas, no haiku</p>
+          <p>Write something for you and me</p>
+          <p>Words will flow with time</p>
+        </div>
+        <div class="haiku_bottom">
+          <div class="like_counter">
+            <div class="like_button">
+              <img src="/images/swan.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <!-- POST MODULE -->
     <% @posts.reverse.each do |post| %>
       <div class="haiku_box">
