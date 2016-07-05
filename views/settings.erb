@@ -1,22 +1,19 @@
 <div id="wrapper">
 	<section id="container">
-	  <!-- settings -->
+	  <!-- Settings -->
 	  <form class="form settings" method="post" action="/settings">
       <div class="title settings">
         <h2>SETTINGS</h2>
       </div>
-			<input class="input settings" type="text" name="name" value="<%= @user.name %>" placeholder="name" required />
-			<input class="input settings" type="text" name="email" value="<%= @user.email %>"  placeholder="email" required />
-			<input class="input settings" type="text" name="bday" value="<%= @user.bday %> " placeholder="bday" required />
-			<input class="input settings" type="password" name="password" value="<%= @user.password %>" placeholder="password" required />
+			<input class="input settings" type="text" name="name" value="<%= current_user.name %>" placeholder="name" required />
+			<input class="input settings" type="email" name="email" value="<%= current_user.email %>"  placeholder="email" required />
+			<input class="input settings date" type="date" name="bday" value="<%= current_user.bday.strftime("%Y-%m-%d") %>" required />
+			<input class="input settings" type="password" name="password" placeholder="current password" />
+			<input class="input settings" type="password" name="new_password" placeholder="new password" />
 			<input class="button settings" type="submit" value="UPDATE USER" />
+			<!-- Delete account button  -->
+			<input class="button delete_user" formaction="/delete-account" type="submit" value="DELETE USER"/>
 	  </form>
-
-	  <!-- Delete account button  -->
-	  <form class="form delete_user" method="post" action="/delete-account">
-	  	<input class="button delete_user" type="submit" value="DELETE USER"/>
-	  </form>
-
 	</section>
 </div>
 
