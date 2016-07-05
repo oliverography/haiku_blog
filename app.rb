@@ -133,12 +133,12 @@ end
 
 post "/delete-account" do
 
-  @user = User.find(params[:id])
+  @user = User.find(session[:user_id])
   @user.posts.destroy_all
   @user.destroy
+  session[:user_id] = nil
  
   flash[:notice] = "current user deleted, we will miss you."
-
   redirect "/"
 end
 
