@@ -59,7 +59,7 @@ post "/sign-in" do
   else
     flash[:error] = "Sorry, your email and password do not match."
 
-    redirect "/sign-in"
+    redirect "/"
   end
 end
 
@@ -113,30 +113,36 @@ end
 #   SETTINGS
 # ============================================================
 get "/settings" do
-  @user = User.find(session[:user_id]) 
-  erb :settings
+  if session[:user_id]
+    erb :settings
+  else
+    redirect "/"
+  end
 end
 
-# updating the Current user information
+# Update current user info
 post "/settings" do
   current_user.update(
-    name: params[:name],
-    email: params[:email],
-    bday: params[:bday],
-    password: params[:password]
+  name: params[:name],
+  email: params[:email],
+  bday: params[:bday],
   )
-    flash[:notice] = "your changes have been saved"
+  # Update password if current password is correct
+  if(current_user.password == params[:password] && params[:new_password].length > 0)
+    current_user.update(
+    password: params[:new_password]
+    )
+  end
 
-    redirect "/settings" 
+  redirect back
 end
 
-# delete posts and user 
+# Delete user and posts 
 post "/delete-account" do
   current_user.posts.destroy_all
   current_user.destroy
   session[:user_id] = nil
  
-  flash[:notice] = "current user deleted, we will miss you."
   redirect "/"
 end
 
