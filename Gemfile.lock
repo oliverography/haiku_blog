@@ -19,9 +19,15 @@ GEM
     i18n (0.7.0)
     json (1.8.3)
     minitest (5.9.0)
+    pg (0.18.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     rake (11.2.2)
     sinatra (1.4.7)
       rack (~> 1.5)
@@ -43,6 +49,8 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  pg
+  rails_12factor
   rake
   sinatra
   sinatra-activerecord
