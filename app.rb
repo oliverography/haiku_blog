@@ -3,8 +3,14 @@ require "sinatra/activerecord"
 require "./models"
 require "sinatra/flash"
 
+configure: development do
+  :database postgresql:app.db
+end
+
+
 enable :sessions
-set :database, "postgresql:app.db"
+set :database, "postgresql
+:app.db"
 
 # ============================================================
 #   LANDING/HOME
