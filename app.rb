@@ -4,7 +4,7 @@ require "./models"
 require "sinatra/flash"
 
 enable :sessions
-set :database, "postgresl:app.db"
+set :database, "postgresql:app.db"
 
 # ============================================================
 #   LANDING/HOME
