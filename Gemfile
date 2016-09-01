@@ -9,5 +9,5 @@ gem "sinatra-flash"
 
 gem "pg", :group => :production
 gem "sqlite3", :group => :development
-gem "rails_12factor"
+gem "rails_12factor", :group => :production
 # gem uninstall activerecord —version 5.0.0
