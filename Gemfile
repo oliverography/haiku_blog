@@ -4,6 +4,7 @@ ruby "2.3.0"
 gem "sinatra"
 gem "activerecord"
 gem "sinatra-activerecord"
+gem 'sqlite3'
 gem 'sqlite3', group: :development
 group :production do
     gem 'pg'
