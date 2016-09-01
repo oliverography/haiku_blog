@@ -7,7 +7,7 @@ development:
   pool: 5
   host: localhost
 
-test:
+production:
   adapter: postgresql
   encoding: unicode
   database: haiku_blog
