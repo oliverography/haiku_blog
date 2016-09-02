@@ -2,11 +2,11 @@ require "sinatra"
 require "sinatra/activerecord"
 require "./models"
 require "sinatra/flash"
+require "./environments"
 
 
 enable :sessions
-set :database, "postgresql
-:app.db"
+set :database, "postgresql:app.db"
 
 # ============================================================
 #   LANDING/HOME
